@@ -1,0 +1,59 @@
+{
+	"id": "c9d8c902-b233-f915-1d7c-bb0fdf750aa9",
+	"name": "cv",
+	"description": "",
+	"order": [
+		"bcc351b3-2b2c-6472-d40a-ced530cdc0b8"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1518776092508,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "bcc351b3-2b2c-6472-d40a-ced530cdc0b8",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:9080/hello",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "file",
+					"value": "MySql installation",
+					"description": "",
+					"type": "file",
+					"enabled": true
+				},
+				{
+					"key": "firstname",
+					"value": "xx",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lastname",
+					"value": "yy",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518907953941,
+			"name": "localhost",
+			"description": "",
+			"collectionId": "c9d8c902-b233-f915-1d7c-bb0fdf750aa9",
+			"responses": []
+		}
+	]
+}
