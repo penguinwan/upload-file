@@ -16,7 +16,7 @@ camelContext.addRoutes(new RouteBuilder() {
             println "headers ${it.in.headers}"
             HttpPostRequestDecoder request = new HttpPostRequestDecoder(it.getIn(NettyHttpMessage.class).getHttpRequest());
             try {
-                for (InterfaceHttpData part : request.getBodyHttpDatas()) {
+                request.getBodyHttpDatas().each { part ->
                     if (part instanceof MixedAttribute) {
                         Attribute attribute = (MixedAttribute) part;
                         println "found key[${attribute.getName()}] value[${attribute.getValue()}]"
