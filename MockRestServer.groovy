@@ -18,26 +18,26 @@ camelContext.addRoutes(new RouteBuilder() {
     def void configure() {
         from('netty4-http:http://localhost:9080/hello')
         .process { 
-        	println "headers ${it.in.headers}"
-	        HttpPostRequestDecoder request = new HttpPostRequestDecoder(it.getIn(NettyHttpMessage.class).getHttpRequest());
-	        try {
-	            for (InterfaceHttpData part : request.getBodyHttpDatas()) {
-	                if (part instanceof MixedAttribute) {
-	                    Attribute attribute = (MixedAttribute) part;
-	                    println "found key[${attribute.getName()}] value[${attribute.getValue()}]"
-	                } else if (part instanceof MixedFileUpload) {
-	                    MixedFileUpload attribute = (MixedFileUpload) part;
-	                    println "found key[${attribute.getName()}] value[${attribute.getFilename()}] "
-	                }
-	            }
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        } finally {
-	            request.destroy();
-	        }
-		    it.in.body = 'ok'
-	    }
-    }
+			println "headers ${it.in.headers}"
+			HttpPostRequestDecoder request = new HttpPostRequestDecoder(it.getIn(NettyHttpMessage.class).getHttpRequest());
+			try {
+				for (InterfaceHttpData part : request.getBodyHttpDatas()) {
+					if (part instanceof MixedAttribute) {
+						Attribute attribute = (MixedAttribute) part;
+						println "found key[${attribute.getName()}] value[${attribute.getValue()}]"
+					} else if (part instanceof MixedFileUpload) {
+						MixedFileUpload attribute = (MixedFileUpload) part;
+						println "found key[${attribute.getName()}] value[${attribute.getFilename()}] "
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				request.destroy();
+			}
+			it.in.body = 'ok'
+		}
+	}
 })
 camelContext.start()
 
